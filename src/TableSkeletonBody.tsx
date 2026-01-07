@@ -11,6 +11,11 @@ export type TableSkeletonBodyProps = {
   randomize?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  // Theming props (v0.2.0)
+  backgroundColor?: string;
+  shimmerColor?: string;
+  barHeight?: number | string;
+  barBorderRadius?: number | string;
 };
 
 const toColumns = (columns: number | ColumnInput[]) => {
@@ -36,6 +41,10 @@ export const TableSkeletonBody: React.FC<TableSkeletonBodyProps> = ({
   randomize = false,
   className,
   style,
+  backgroundColor,
+  shimmerColor,
+  barHeight,
+  barBorderRadius,
 }) => {
   const cols = React.useMemo(() => toColumns(columns), [columns]);
 
@@ -59,8 +68,29 @@ export const TableSkeletonBody: React.FC<TableSkeletonBodyProps> = ({
     verticalAlign: "middle",
   };
 
+  // Build CSS variables for theming
+  const themeVars: React.CSSProperties = {
+    ...(backgroundColor && { "--rts-bg-color": backgroundColor } as any),
+    ...(shimmerColor && { "--rts-shimmer-color": shimmerColor } as any),
+    ...(barHeight && {
+      "--rts-bar-height":
+        typeof barHeight === "number" ? `${barHeight}px` : barHeight,
+    } as any),
+    ...(barBorderRadius && {
+      "--rts-bar-radius":
+        typeof barBorderRadius === "number"
+          ? `${barBorderRadius}px`
+          : barBorderRadius,
+    } as any),
+  };
+
+  const tbodyStyle: React.CSSProperties = {
+    ...themeVars,
+    ...style,
+  };
+
   return (
-    <tbody aria-busy="true" className={className} style={style}>
+    <tbody aria-busy="true" className={className} style={tbodyStyle}>
       {Array.from({ length: rows }).map((_, r) => (
         <tr key={r} style={rowStyle}>
           {cols.map((_, cIdx) => {

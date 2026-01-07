@@ -53,18 +53,23 @@ function MyTable({ loading, data }) {
 
 ---
 
-## Props (v0.1.0)
+## Props
 
-| Prop          | Type                  | Default | Description |
-|---------------|-----------------------|---------|-------------|
-| `rows`        | `number`              | `5`     | Number of skeleton rows |
-| `columns`     | `number | array`      | `3`     | Column count or column width config |
-| `rowHeight`   | `number | string`     | `48px`  | Fixed row height (prevents layout shift) |
-| `cellPadding` | `number | string`     | `8px`   | Padding for each cell |
-| `shimmer`     | `boolean`             | `true`  | Enable shimmer animation |
-| `randomize`   | `boolean`             | `false` | Stable per-column width variation |
-| `className`   | `string`              | —       | Passed to `<tbody>` |
-| `style`       | `React.CSSProperties` | —       | Inline styles for `<tbody>` |
+| Prop               | Type                  | Default                  | Description |
+|--------------------|-----------------------|--------------------------|-------------|
+| `rows`             | `number`              | `5`                      | Number of skeleton rows |
+| `columns`          | `number \| array`     | `3`                      | Column count or column width config |
+| `rowHeight`        | `number \| string`    | `48px`                   | Fixed row height (prevents layout shift) |
+| `cellPadding`      | `number \| string`    | `8px`                    | Padding for each cell |
+| `shimmer`          | `boolean`             | `true`                   | Enable shimmer animation |
+| `randomize`        | `boolean`             | `false`                  | Stable per-column width variation |
+| `className`        | `string`              | —                        | Passed to `<tbody>` |
+| `style`            | `React.CSSProperties` | —                        | Inline styles for `<tbody>` |
+| **Theming (v0.2.0)** |                     |                          | |
+| `backgroundColor`  | `string`              | `#e6e6e6`                | Background color of skeleton bars |
+| `shimmerColor`     | `string`              | `rgba(255,255,255,0.6)`  | Color of shimmer animation |
+| `barHeight`        | `number \| string`    | `14px`                   | Height of skeleton bars |
+| `barBorderRadius`  | `number \| string`    | `3px`                    | Border radius of skeleton bars |
 
 ### Column width configuration
 
@@ -80,6 +85,32 @@ Accepted values:
 - `number`
 - `string` (`px`, `%`, `fr`)
 - `{ width?: number | string }`
+
+### Theming example
+
+Customize the appearance to match your design system:
+
+```tsx
+<TableSkeletonBody
+  rows={5}
+  columns={3}
+  backgroundColor="#1e293b"
+  shimmerColor="rgba(148, 163, 184, 0.3)"
+  barHeight={16}
+  barBorderRadius={6}
+/>
+```
+
+For dark mode:
+
+```tsx
+<TableSkeletonBody
+  rows={5}
+  columns={3}
+  backgroundColor="#374151"
+  shimmerColor="rgba(156, 163, 175, 0.2)"
+/>
+```
 
 ---
 

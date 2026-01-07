@@ -3,11 +3,28 @@ import { TableSkeletonBody } from "react-table-skeleton";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState("default");
   const data = [
     { name: "Alice", age: 30, city: "NY" },
     { name: "Bob", age: 25, city: "LA" },
     { name: "Cara", age: 28, city: "SF" },
   ];
+
+  const themeConfigs = {
+    default: {},
+    dark: {
+      backgroundColor: "#374151",
+      shimmerColor: "rgba(156, 163, 175, 0.2)",
+      barHeight: 16,
+      barBorderRadius: 6,
+    },
+    custom: {
+      backgroundColor: "#1e293b",
+      shimmerColor: "rgba(148, 163, 184, 0.3)",
+      barHeight: 18,
+      barBorderRadius: 8,
+    },
+  };
 
   return (
     <div className="example-root">
@@ -16,6 +33,12 @@ export default function App() {
         <button onClick={() => setLoading((v) => !v)}>
           {loading ? "Show Real Data" : "Show Skeleton"}
         </button>
+        {" | "}
+        <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+          <option value="default">Default Theme</option>
+          <option value="dark">Dark Theme</option>
+          <option value="custom">Custom Theme</option>
+        </select>
       </p>
 
       <table className="demo-table">
@@ -32,6 +55,7 @@ export default function App() {
             columns={3}
             shimmer={true}
             randomize={true}
+            {...themeConfigs[theme]}
           />
         ) : (
           <tbody>
