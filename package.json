@@ -1,0 +1,40 @@
+{
+  "name": "react-table-skeleton",
+  "version": "0.1.0",
+  "description": "Lightweight React <tbody> skeleton rows for loading tables with stable layout and optional shimmer.",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RomanFedytskyi/react-table-skeleton.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RomanFedytskyi/react-table-skeleton/issues"
+  },
+  "homepage": "https://github.com/RomanFedytskyi/react-table-skeleton#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tsup": "^6.0.0",
+    "typescript": "^5.0.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,18 @@
+.example-root {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+  padding: 24px;
+}
+.demo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.demo-table th,
+.demo-table td {
+  border: 1px solid #e6e6e6;
+  padding: 8px;
+  text-align: left;
+}
+.demo-table thead {
+  background: #fafafa;
+}
