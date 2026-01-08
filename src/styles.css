@@ -15,24 +15,25 @@
   content: "";
   position: absolute;
   top: 0;
-  left: -150%;
+  left: 0;
   height: 100%;
-  width: 150%;
+  width: 100%;
   background: linear-gradient(
     90deg,
-    transparent,
-    var(--rts-shimmer-color, rgba(255, 255, 255, 0.6)),
-    transparent
+    transparent 0%,
+    var(--rts-shimmer-color, rgba(255, 255, 255, 0.6)) 50%,
+    transparent 100%
   );
-  animation: rts-shimmer 1.2s linear infinite;
+  animation: rts-shimmer 2s ease-in-out infinite;
+  transform: translateX(-100%);
 }
 
 @keyframes rts-shimmer {
-  from {
-    transform: translateX(0%);
+  0% {
+    transform: translateX(-100%);
   }
-  to {
-    transform: translateX(100%);
+  100% {
+    transform: translateX(200%);
   }
 }
 

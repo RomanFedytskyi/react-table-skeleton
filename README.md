@@ -1,8 +1,12 @@
 # react-table-skeleton
 
 ![npm](https://img.shields.io/npm/v/react-table-skeleton?color=brightgreen)
+![npm downloads](https://img.shields.io/npm/dm/react-table-skeleton)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-table-skeleton)
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![build](https://img.shields.io/github/actions/workflow/status/RomanFedytskyi/react-table-skeleton/ci.yml?branch=main)
+![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?logo=typescript)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
 
 Lightweight React `<tbody>` skeleton rows for loading tables with a **stable layout** and optional **shimmer animation**.
 
@@ -21,6 +25,7 @@ Lightweight React `<tbody>` skeleton rows for loading tables with a **stable lay
 ```tsx
 import React from "react";
 import { TableSkeletonBody } from "react-table-skeleton";
+import "react-table-skeleton/dist/index.css";
 
 function MyTable({ loading, data }) {
   return (
@@ -152,6 +157,12 @@ npm run dev
 
 ```bash
 npm install react-table-skeleton
+```
+
+Then import the CSS in your app:
+
+```tsx
+import "react-table-skeleton/dist/index.css";
 ```
 
 ---

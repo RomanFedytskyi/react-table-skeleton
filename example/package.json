@@ -2,7 +2,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-table-skeleton": "^0.1.0"
+    "react-table-skeleton": "file:.."
   },
   "devDependencies": {
     "vite": "^5.0.0"

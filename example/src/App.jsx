@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TableSkeletonBody } from "react-table-skeleton";
+import "react-table-skeleton/dist/index.css";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
